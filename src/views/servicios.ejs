@@ -1,0 +1,39 @@
+<%- include('templates/header.ejs') %>
+    <%- include('templates/nav.ejs') %>
+        <h1>
+            Listado Servicios
+        </h1>
+
+        <section>
+
+            <table>
+                <tr>
+                    <th>Servicios</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>&nbsp;</th> <%/*espacio no separable*/%>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+
+                <tbody>
+                    <%if(data.ok){ %>
+
+                        <%data.data.forEach((servicio)=> { %>
+                            <tr>
+                                <td><%= servicio.nombre %></td>
+                                <td><%= servicio.descripcion %></td>
+                                <td><%= servicio.precio %></td>
+                            </tr>
+                        <% }) %>
+                    <%}else{%>
+                        <p><%=data.data.msg%></p>
+                    <%}%>
+                </tbody>
+
+
+            </table>
+            
+        </section>
+
+ <%- include('templates/footer.ejs') %>
